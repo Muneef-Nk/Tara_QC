@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:tara_qc/features/battery/view/battery_view.dart';
+import 'package:tara_qc/features/temperature/view/temperature_view.dart';
 import '../../../app/app_theme.dart';
 
 class DashboardView extends StatefulWidget {
@@ -41,7 +42,10 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TARA QC Dashboard'),
+        title: const Text(
+          'TARA QC Dashboard',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: AppTheme.primary,
@@ -90,7 +94,10 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
                       gradient: const [Color(0xFF2196F3), Color(0xFF0D47A1)],
                       delay: 0.2,
                       onTap: () {
-                        // TODO: Navigate to Temperature screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const TemperatureView()),
+                        );
                       },
                     ),
                     _DashboardCard(

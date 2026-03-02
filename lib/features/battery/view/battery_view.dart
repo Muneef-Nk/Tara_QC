@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
+
 import '../../../app/app_theme.dart';
 import '../viewmodel/battery_viewmodel.dart';
 
@@ -51,7 +52,7 @@ class _BatteryViewState extends State<BatteryView> with SingleTickerProviderStat
       create: (_) => BatteryViewModel()..loadBattery(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Battery Test'),
+          title: const Text('Battery Test', style: TextStyle(color: Colors.white)),
           centerTitle: true,
           elevation: 0,
           backgroundColor: AppTheme.primary,
@@ -88,7 +89,7 @@ class _BatteryViewState extends State<BatteryView> with SingleTickerProviderStat
                       crossAxisCount: 2,
                       crossAxisSpacing: 12,
                       mainAxisSpacing: 12,
-                      childAspectRatio: 1.6,
+                      childAspectRatio: 1.3,
                       children: [
                         _InfoCard(
                           title: 'Battery Percentage',
@@ -422,11 +423,8 @@ class _ResultCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 3,
-      color: isPass ? Colors.green.withOpacity(0.05) : Colors.red.withOpacity(0.05),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: isPass ? Colors.green.shade200 : Colors.red.shade200, width: 2),
-      ),
+      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Row(
